@@ -1,0 +1,63 @@
+{
+  "name": "@manniwatch/docker",
+  "version": "0.0.0",
+  "description": "Server Helper helper for TrapezeApi",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "keywords": [
+    "api",
+    "types"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.app.json",
+    "build:docker": "docker build . -t manniwatch/manniwatch",
+    "build:readme": "npx @appnest/readme generate --input ../package_readme_blueprint.md --config readme_config.json --silent true",
+    "start": "node ./dist/index.js",
+    "start:docker": "docker run --rm manniwatch/manniwatch",
+    "test": "mocha --config ../../.mocharc.yml",
+    "test:coverage": "nyc --nycrc-path ../../.nycrc.json npm run test",
+    "lint": "tslint -c tslint.json -p tsconfig.json src/**/*.ts",
+    "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json src/**/*.ts",
+    "docs": "typedoc --options ../../typedoc.json",
+    "prepublishOnly": "npm run test && npm run docs && npm run build",
+    "version": "npm run build:readme && git add README.md"
+  },
+  "homepage": "https://manniwatch.github.io/docker/",
+  "author": {
+    "name": "donmahallem",
+    "email": "donmahallem@users.noreply.github.com",
+    "url": "https://github.com/donmahallem"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/manniwatch/docker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manniwatch/docker.git"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "dependencies": {
+    "@manniwatch/api-proxy-server": "~0.23.0",
+    "@manniwatch/api-types": "~0.23.0",
+    "express": "~4.17.1",
+    "nconf": "^0.11.2"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.11",
+    "@types/helmet": "4.0.0",
+    "apidoc": "0.27.1",
+    "supertest": "6.1.3",
+    "typescript": "4.2.4"
+  }
+}
