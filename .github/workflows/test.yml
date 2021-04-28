@@ -38,6 +38,9 @@ jobs:
         run: |
           npm run build
           npm run build:docker
+      - name: Lint
+        run: |
+          npm run lint
   finish:
     needs: test_suite
     name: Finish Test
