@@ -7,4 +7,3 @@ docs/
 **/*.lerna_backup
 .npmrc
 lerna-debug.log
-docker-compose.yml
