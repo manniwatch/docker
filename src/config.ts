@@ -1,7 +1,7 @@
 /*!
- * Source https://github.com/manniwatch/manniwatch Package: api-proxy-server
+ * Source https://github.com/manniwatch/docker
  */
-console.log
+
 export class Config {
     /**
      * gets the port for the server
