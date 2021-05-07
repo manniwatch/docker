@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:16
 
 ENV MW_ENDPOINT="undefined"
 ENV MW_PORT=3000
