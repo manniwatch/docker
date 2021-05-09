@@ -2,7 +2,7 @@ version: "3.9"
 services:
   web:
     container_name: manniwatch_web_server
-    image: manniwatch/manniwatch:0.1.0
+    build: .
     stop_signal: SIGINT
     init: true
     ports:
