@@ -1,8 +1,9 @@
-name: Publish Container for Master Branch
+name: Publish Container for Main Branch
 on:
   push:
     branches:
       - 'master'
+      - 'main'
 
 jobs:
   push_to_registry:
