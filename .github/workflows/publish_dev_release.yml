@@ -1,11 +1,12 @@
-name: Publish Packages
+name: Publish Container for Dev Branch
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'dev'
 
 jobs:
   push_to_registry:
-    name: Publish ${{ github.event.release.tag_name }} Container to Docker Hub
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -26,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: manniwatch/manniwatch:${{ github.event.release.tag_name }}
+          tags: manniwatch/manniwatch:nightly
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
