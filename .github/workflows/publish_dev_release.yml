@@ -27,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: manniwatch/manniwatch:dev
+          tags: manniwatch/manniwatch:nightly
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
