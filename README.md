@@ -14,7 +14,7 @@ You either can set the Endpoint information during build time via build args:
 | MW_DEFAULT_PORT | 3000 | Port to use |
 
 ### Configure runtime
-```docker run --env MW_ENDPOINT=test2.domain ./```
+```docker run --env MW_ENDPOINT="test2.domain" -it manniwatch```
 
 Options are:
 | Variable | Default | Description |
