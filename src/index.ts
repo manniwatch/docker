@@ -6,6 +6,7 @@ import {
     ManniWatchApiProxyServer,
     ManniWatchProxyServer,
 } from '@manniwatch/api-proxy-server';
+import { join, resolve } from 'path';
 import { Config } from './config';
 
 enum Mode {
@@ -31,7 +32,7 @@ const mode: Mode = extractMode();
 console.log(`Server runs in ${mode === Mode.API_ONLY ? 'Api Only' : 'Full'} Mode`);
 const server: ManniWatchApiProxyServer | ManniWatchProxyServer = mode === Mode.API_ONLY ?
     new ManniWatchApiProxyServer(Config.endpoint, Config.port) :
-    new ManniWatchProxyServer(Config.endpoint, Config.port);
+    new ManniWatchProxyServer(Config.endpoint, Config.port, resolve(join('/manniwatch', 'client')));
 server.start()
     .then((): void => {
         // tslint:disable-next-line:no-console
