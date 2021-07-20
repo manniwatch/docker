@@ -30,6 +30,7 @@ You can either run in `api only` or `full` mode. One does only provide the rest 
 ```
 docker run -it manniwatch api
 ```
+If you want to run in full mode you will have to mount the client-ng files to the directory `/manniwatch/client`.
 ```
 docker run -it manniwatch full
 ``` 
