@@ -21,3 +21,15 @@ Options are:
 | -------- | ------- | ----------- |
 | MW_ENDPOINT | build-arg MW_DEFAULT_ENDPOINT | Endpoint to query traffic data from |
 | MW_PORT | build-arg MW_DEFAULT_PORT | Port to use |
+
+
+### Running
+
+You can either run in `api only` or `full` mode. One does only provide the rest api while the other provides the web client too. Default is `api`
+
+```
+docker run -it manniwatch api
+```
+```
+docker run -it manniwatch full
+``` 
