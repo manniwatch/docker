@@ -2,10 +2,36 @@
  * Source https://github.com/manniwatch/docker
  */
 
-import { ManniWatchApiProxyServer } from '@manniwatch/api-proxy-server';
+import {
+    ManniWatchApiProxyServer,
+    ManniWatchProxyServer,
+} from '@manniwatch/api-proxy-server';
 import { Config } from './config';
 
-const server: ManniWatchApiProxyServer = new ManniWatchApiProxyServer(Config.endpoint, Config.port);
+enum Mode {
+    API_ONLY = 1,
+    FULL = 2,
+}
+
+const extractMode: () => Mode = (): Mode => {
+    if (process.argv.length >= 3) {
+        if (process.argv[2] === 'api') {
+        } else if (process.argv[2] === 'full') {
+            return Mode.FULL;
+        } else {
+            console.group(`Unknown Mode argument: "${process.argv[2]}"`);
+            // tslint:disable-next-line:no-console
+            console.log('Using Default "api"');
+            console.groupEnd();
+        }
+    }
+    return Mode.API_ONLY;
+};
+const mode: Mode = extractMode();
+console.log(`Server runs in ${mode === Mode.API_ONLY ? 'Api Only' : 'Full'} Mode`);
+const server: ManniWatchApiProxyServer | ManniWatchProxyServer = mode === Mode.API_ONLY ?
+    new ManniWatchApiProxyServer(Config.endpoint, Config.port) :
+    new ManniWatchProxyServer(Config.endpoint, Config.port);
 server.start()
     .then((): void => {
         // tslint:disable-next-line:no-console
