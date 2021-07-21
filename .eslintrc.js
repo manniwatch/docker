@@ -13,6 +13,11 @@ Happy linting! 💖
 */
 const path = require('path');
 const package = require(path.join(process.cwd(), 'package.json'));
+
+/**
+ * Missing rules
+ * "import-spacing","static-this":,"switch-final-break","typedef","whitespace"
+ */
 module.exports = {
     "env": {
         "browser": true,
@@ -34,7 +39,6 @@ module.exports = {
         "eslint-plugin-no-null",
         "header",
         "@typescript-eslint",
-        "@typescript-eslint/tslint"
     ],
     "rules": {
         "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -288,37 +292,5 @@ module.exports = {
         ],
         "use-isnan": "error",
         "valid-typeof": "off",
-        "@typescript-eslint/tslint/config": [
-            "error",
-            {
-                "rules": {
-                    "import-spacing": true,
-                    "static-this": true,
-                    "switch-final-break": [
-                        true,
-                        "always"
-                    ],
-                    "typedef": [
-                        true,
-                        "call-signature",
-                        "arrow-call-signature",
-                        "parameter",
-                        "arrow-parameter",
-                        "property-declaration",
-                        "variable-declaration",
-                        "variable-declaration-ignore-function",
-                        "member-variable-declaration"
-                    ],
-                    "whitespace": [
-                        true,
-                        "check-branch",
-                        "check-decl",
-                        "check-operator",
-                        "check-separator",
-                        "check-type"
-                    ]
-                }
-            }
-        ]
     }
 };
