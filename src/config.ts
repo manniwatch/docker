@@ -1,5 +1,6 @@
-/*!
- * Source https://github.com/manniwatch/docker
+/*
+ * Package @manniwatch/docker
+ * Source https://manniwatch.github.io/docker/
  */
 
 export class Config {
@@ -19,5 +20,4 @@ export class Config {
         }
         throw new Error('No endpoint specified');
     }
-
 }
