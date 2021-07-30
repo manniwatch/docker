@@ -1,20 +1,42 @@
-/*!
- * Source https://github.com/manniwatch/docker
+/*
+ * Package @manniwatch/docker
+ * Source https://manniwatch.github.io/docker/
  */
 
-import { ManniWatchApiProxyServer } from '@manniwatch/api-proxy-server';
+import { ManniWatchApiProxyServer, ManniWatchProxyServer } from '@manniwatch/api-proxy-server';
+import { join, resolve } from 'path';
 import { Config } from './config';
+import { ServerMode } from './mode';
 
-const server: ManniWatchApiProxyServer = new ManniWatchApiProxyServer(Config.endpoint, Config.port);
-server.start()
-    .then((): void => {
-        // tslint:disable-next-line:no-console
-        console.info(`Server started on ${Config.port} with endpoint ${Config.endpoint}`);
-    });
+const extractMode: () => ServerMode = (): ServerMode => {
+    if (process.argv.length >= 3) {
+        if (process.argv[2] === 'api') {
+        } else if (process.argv[2] === 'full') {
+            return ServerMode.FULL;
+        } else {
+            console.group(`Unknown Mode argument: "${process.argv[2]}"`);
+            // eslint-disable-next-line no-console
+            console.log('Using Default "api"');
+            console.groupEnd();
+        }
+    }
+    return ServerMode.API_ONLY;
+};
+const extractedMode: ServerMode = extractMode();
+console.log(`Server runs in ${extractedMode === ServerMode.API_ONLY ? 'Api Only' : 'Full'} Mode`);
+const server: ManniWatchApiProxyServer | ManniWatchProxyServer =
+    extractedMode === ServerMode.API_ONLY
+        ? new ManniWatchApiProxyServer(Config.endpoint, Config.port)
+        : new ManniWatchProxyServer(Config.endpoint, Config.port, resolve(join('/manniwatch', 'client')));
+server.start().then((): void => {
+    // eslint-disable-next-line no-console
+    console.info(`Server started on ${Config.port} with endpoint ${Config.endpoint}`);
+});
 process.on('SIGINT', (): void => {
-    // tslint:disable-next-line:no-console
+    // eslint-disable-next-line no-console
     console.info('Interrupted');
-    server.stop()
+    server
+        .stop()
         .then((): void => {
             console.log('Server closed');
         })
