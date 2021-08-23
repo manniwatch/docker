@@ -4,6 +4,6 @@ module.exports = {
     ],
     "rules": {},
     "parserOptions": {
-        "project": "./tsconfig.spec.json",
+        "project": "./tsconfig.json",
     },
 };
