@@ -6,6 +6,8 @@
 export class Config {
     /**
      * gets the port for the server
+     *
+     * @returns {number} Port to be used
      */
     public static get port(): number {
         if (process.env.MW_PORT) {
@@ -14,6 +16,11 @@ export class Config {
         throw new Error('No port specified');
     }
 
+    /**
+     * Retrieves the endpoint environment variable
+     *
+     * @returns {string} Endpoint to query data from
+     */
     public static get endpoint(): string {
         if (process.env.MW_ENDPOINT) {
             return process.env.MW_ENDPOINT;
