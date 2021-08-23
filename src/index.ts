@@ -11,6 +11,7 @@ import { ServerMode } from './mode';
 const extractMode: () => ServerMode = (): ServerMode => {
     if (process.argv.length >= 3) {
         if (process.argv[2] === 'api') {
+            // TODO: Default import
         } else if (process.argv[2] === 'full') {
             return ServerMode.FULL;
         } else {
@@ -28,10 +29,13 @@ const server: ManniWatchApiProxyServer | ManniWatchProxyServer =
     extractedMode === ServerMode.API_ONLY
         ? new ManniWatchApiProxyServer(Config.endpoint, Config.port)
         : new ManniWatchProxyServer(Config.endpoint, Config.port, resolve(join('/manniwatch', 'client')));
-server.start().then((): void => {
-    // eslint-disable-next-line no-console
-    console.info(`Server started on ${Config.port} with endpoint ${Config.endpoint}`);
-});
+server
+    .start()
+    .then((): void => {
+        // eslint-disable-next-line no-console
+        console.info(`Server started on ${Config.port} with endpoint ${Config.endpoint}`);
+    })
+    .catch(console.error);
 process.on('SIGINT', (): void => {
     // eslint-disable-next-line no-console
     console.info('Interrupted');
@@ -40,6 +44,7 @@ process.on('SIGINT', (): void => {
         .then((): void => {
             console.log('Server closed');
         })
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .catch((err: any): void => {
             console.error('Error occured while stoping', err);
         })
