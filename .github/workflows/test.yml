@@ -64,6 +64,9 @@ jobs:
         uses: docker/metadata-action@v3.5.0
         with:
           images: manniwatch/manniwatch
+          labels: |
+            org.opencontainers.image.title=Manniwatch
+            org.opencontainers.image.description=Manniwatch Docker Image
           tags: |
             type=ref,event=branch
             type=ref,event=pr

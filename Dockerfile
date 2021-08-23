@@ -1,6 +1,9 @@
 FROM node:16
 # Generic Labels
 LABEL "architecture"="arm64" "architecture"="amd64"
+LABEL "org.opencontainers.image.title"="Manniwatch"
+LABEL "org.opencontainers.image.description"="Manniwatch Docker Image"
+
 ARG MW_DEFAULT_ENDPOINT="undefined"
 ARG MW_DEFAULT_PORT=3000
 ENV MW_ENDPOINT $MW_DEFAULT_ENDPOINT
