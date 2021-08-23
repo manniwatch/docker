@@ -1,5 +1,6 @@
 FROM node:16
-
+# Generic Labels
+LABEL "architecture"="arm64" "architecture"="amd64"
 ARG MW_DEFAULT_ENDPOINT="undefined"
 ARG MW_DEFAULT_PORT=3000
 ENV MW_ENDPOINT $MW_DEFAULT_ENDPOINT
