@@ -12,7 +12,6 @@
   "scripts": {
     "build": "tsc -p tsconfig.app.json",
     "build:docker": "docker build . -t manniwatch/manniwatch",
-    "build:readme": "npx @appnest/readme generate --input ../package_readme_blueprint.md --config readme_config.json --silent true",
     "start": "node ./dist/index.js",
     "start:docker": "docker run --rm manniwatch/manniwatch",
     "test": "mocha --config ../../.mocharc.yml",
@@ -22,8 +21,7 @@
     "lint:fix": "eslint -c .eslintrc.js --ext .ts ./src --fix",
     "postlint:fix": "prettier --config .prettierrc src/**/*.ts src/*.ts --write",
     "docs": "typedoc --options ../../typedoc.json",
-    "prepublishOnly": "npm run test && npm run docs && npm run build",
-    "version": "npm run build:readme && git add README.md"
+    "prepublishOnly": "npm run test && npm run docs && npm run build"
   },
   "homepage": "https://manniwatch.github.io/docker/",
   "author": {
