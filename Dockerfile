@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16.7-alpine
 # Generic Labels
 LABEL org.opencontainers.image.title="Manniwatch"
 LABEL org.opencontainers.image.description="Manniwatch Docker Image"
