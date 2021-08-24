@@ -1,6 +1,8 @@
 # Manniwatch Docker
 
-This repository is used to build and publish the Docker Image for Manniwatch.
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/manniwatch/manniwatch?logo=docker&sort=semver) ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/manniwatch/manniwatch?logo=docker&sort=semver)
+
+This repository is used to build and publish the [Docker Image](https://hub.docker.com/r/manniwatch/manniwatch) for Manniwatch.
 
 # Usage
 
