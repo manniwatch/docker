@@ -12,10 +12,10 @@ WORKDIR /usr/src/app
 COPY package*.json tsconfig*.json ./
 COPY ./src ./src
 
-RUN npm ci \
-    npm run build \
-    npm prune --production \
-    npm ci --production \
+RUN npm ci && \
+    npm run build && \
+    npm prune --production && \
+    npm ci --production && \
     npm cache clean --force
 
 EXPOSE 3000
