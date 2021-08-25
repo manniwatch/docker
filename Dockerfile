@@ -18,6 +18,7 @@ RUN npm ci && \
     npm ci --production && \
     npm cache clean --force
 
+ENV NODE_ENV="production"
 EXPOSE 3000
 RUN echo "Building with Endpoint ${MW_ENDPOINT} and Port ${MW_PORT}"
 
