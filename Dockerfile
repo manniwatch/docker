@@ -4,9 +4,8 @@ LABEL org.opencontainers.image.title="Manniwatch"
 LABEL org.opencontainers.image.description="Manniwatch Docker Image"
 
 ARG MW_DEFAULT_ENDPOINT="undefined"
-ARG MW_DEFAULT_PORT=3000
 ENV MW_ENDPOINT $MW_DEFAULT_ENDPOINT
-ENV MW_PORT $MW_DEFAULT_PORT
+ENV MW_PORT=3000
 
 WORKDIR /usr/src/app
 COPY --chown=node:node package*.json tsconfig*.json ./
