@@ -9,8 +9,8 @@ ENV MW_ENDPOINT $MW_DEFAULT_ENDPOINT
 ENV MW_PORT $MW_DEFAULT_PORT
 
 WORKDIR /usr/src/app
-COPY package*.json tsconfig*.json ./
-COPY ./src ./src
+COPY --chown=node:node package*.json tsconfig*.json ./
+COPY --chown=node:node ./src ./src
 
 RUN npm ci && \
     npm run build && \
