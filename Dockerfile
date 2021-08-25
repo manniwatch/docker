@@ -12,14 +12,13 @@ WORKDIR /usr/src/app
 COPY package*.json tsconfig*.json ./
 COPY ./src ./src
 
-RUN npm ci
-#COPY . .
-RUN npm run build
+RUN npm ci && \
+    npm run build && \
+    npm prune --production && \
+    npm ci --production && \
+    npm cache clean --force
 
-# Clean build
-RUN npm ci --production
-RUN npm cache clean --force
-
+ENV NODE_ENV="production"
 EXPOSE 3000
 RUN echo "Building with Endpoint ${MW_ENDPOINT} and Port ${MW_PORT}"
 
