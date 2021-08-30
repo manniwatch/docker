@@ -17,7 +17,7 @@ RUN npm ci
 RUN npm run build
 
 # Build server
-FROM apline_container AS build_client
+FROM node:16.8-bullseye AS build_client
 
 WORKDIR /usr/src/app
 RUN git clone https://github.com/manniwatch/manniwatch.git
