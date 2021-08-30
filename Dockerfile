@@ -22,8 +22,8 @@ FROM node:16.8-bullseye AS build_client
 WORKDIR /usr/src/app
 RUN git clone https://github.com/manniwatch/manniwatch.git ./
 RUN npm ci
-RUN npx lerna bootstrap --ci --scope @donmahallem/client-ng --include-dependencies
-RUN npx lerna run build --scope @donmahallem/client-ng --include-dependencies
+RUN npx lerna bootstrap --ci --scope @manniwatch/client-ng --include-dependencies
+RUN npx lerna run build --scope @manniwatch/client-ng --include-dependencies
 
 # Build Final Image
 FROM apline_container
