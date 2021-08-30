@@ -1,4 +1,8 @@
-FROM node:16.8-alpine AS build_server
+# Get base container
+FROM node:16.8-alpine AS apline_container
+
+# Build server
+FROM apline_container AS build_server
 
 ARG MW_DEFAULT_ENDPOINT="undefined"
 ENV MW_ENDPOINT $MW_DEFAULT_ENDPOINT
@@ -13,7 +17,7 @@ RUN npm ci
 RUN npm run build
 
 # Build Final Image
-FROM node:16.8-alpine
+FROM apline_container
 
 LABEL org.opencontainers.image.title="Manniwatch"
 LABEL org.opencontainers.image.description="Manniwatch Docker Image"
