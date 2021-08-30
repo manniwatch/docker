@@ -16,6 +16,15 @@ RUN echo "Building with Endpoint ${MW_ENDPOINT} and Port ${MW_PORT}"
 RUN npm ci
 RUN npm run build
 
+# Build server
+FROM apline_container AS build_client
+
+WORKDIR /usr/src/app
+RUN git clone https://github.com/manniwatch/manniwatch.git
+RUN npm ci
+RUN npx lerna bootstrap --ci --scope @donmahallem/client-ng --include-dependencies
+RUN npx lerna run build --scope @donmahallem/client-ng --include-dependencies
+
 # Build Final Image
 FROM apline_container
 
@@ -30,6 +39,7 @@ WORKDIR /usr/src/app
 COPY --chown=node:node package*.json tsconfig*.json ./
 COPY --chown=node:node ./src ./src
 COPY --from=build_server --chown=node:node /usr/src/app/dist ./dist
+COPY --from=build_client --chown=node:node /usr/src/app/packages/client-ng/dist /usr/client
 
 ENV NODE_ENV="production"
 RUN npm ci --production && \
