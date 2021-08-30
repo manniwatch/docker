@@ -1,4 +1,4 @@
-FROM node:16.8-alpine AS build
+FROM node:16.8-alpine AS build_server
 
 ARG MW_DEFAULT_ENDPOINT="undefined"
 ENV MW_ENDPOINT $MW_DEFAULT_ENDPOINT
@@ -12,7 +12,7 @@ RUN echo "Building with Endpoint ${MW_ENDPOINT} and Port ${MW_PORT}"
 RUN npm ci
 RUN npm run build
 
-
+# Build Final Image
 FROM node:16.8-alpine
 
 LABEL org.opencontainers.image.title="Manniwatch"
@@ -25,14 +25,13 @@ ENV MW_PORT=3000
 WORKDIR /usr/src/app
 COPY --chown=node:node package*.json tsconfig*.json ./
 COPY --chown=node:node ./src ./src
-COPY --from=build --chown=node:node /usr/src/app/dist ./dist
+COPY --from=build_server --chown=node:node /usr/src/app/dist ./dist
 
 ENV NODE_ENV="production"
 RUN npm ci --production && \
     npm cache clean --force
 
 EXPOSE 3000
-RUN echo "Building with Endpoint ${MW_ENDPOINT} and Port ${MW_PORT}"
 
 USER node
 ENTRYPOINT ["node", "./dist/index.js"]
