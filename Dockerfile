@@ -8,7 +8,6 @@ WORKDIR /usr/src/app
 COPY --chown=node:node package*.json tsconfig*.json ./
 COPY --chown=node:node ./src ./src
 
-ENV NODE_ENV="production"
 RUN echo "Building with Endpoint ${MW_ENDPOINT} and Port ${MW_PORT}"
 RUN npm ci
 RUN npm run build
