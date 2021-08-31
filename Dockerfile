@@ -23,6 +23,7 @@ WORKDIR /usr/src/app
 RUN git clone https://github.com/manniwatch/manniwatch.git ./
 RUN npm ci
 RUN npx lerna bootstrap --ci --scope @manniwatch/client-ng --include-dependencies
+RUN cp ./packages/client-ng/src/environments/environment.example.ts packages/client-ng/src/environments/environment.ts
 RUN npx lerna run build --scope @manniwatch/client-ng --include-dependencies
 
 # Build Final Image
@@ -39,7 +40,7 @@ WORKDIR /usr/src/app
 COPY --chown=node:node package*.json tsconfig*.json ./
 COPY --chown=node:node ./src ./src
 COPY --from=build_server --chown=node:node /usr/src/app/dist ./dist
-COPY --from=build_client --chown=node:node /usr/src/app/packages/client-ng/dist /usr/client
+COPY --from=build_client --chown=node:node /usr/src/app/packages/client-ng/dist/manniwatch /usr/client
 
 ENV NODE_ENV="production"
 RUN npm ci --production && \
