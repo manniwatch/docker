@@ -48,8 +48,8 @@
     "access": "restricted"
   },
   "dependencies": {
-    "@manniwatch/api-proxy-server": "~0.27.6",
-    "@manniwatch/api-types": "~0.27.3",
+    "@manniwatch/api-proxy-server": "~0.27.7",
+    "@manniwatch/api-types": "~0.27.7",
     "express": "~4.17.1"
   },
   "devDependencies": {
