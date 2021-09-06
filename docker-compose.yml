@@ -10,3 +10,4 @@ services:
       - "4200:3000"
     environment:
       NODE_ENV: production
+      MW_ENDPOINT: https://kvg-kiel.de
