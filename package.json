@@ -1,6 +1,6 @@
 {
   "name": "@manniwatch/docker",
-  "version": "0.27.10",
+  "version": "0.28.3",
   "description": "Server Helper helper for TrapezeApi",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
