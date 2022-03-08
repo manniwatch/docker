@@ -50,7 +50,7 @@
   "dependencies": {
     "@manniwatch/api-proxy-server": "~0.29.1",
     "@manniwatch/api-types": "~0.29.0",
-    "express": "~4.17.2"
+    "express": "~4.17.3"
   },
   "devDependencies": {
     "@donmahallem/eslint-config": "1.0.24",
