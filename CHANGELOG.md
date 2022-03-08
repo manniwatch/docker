@@ -1,3 +1,10 @@
+## [0.28.5](https://github.com/manniwatch/docker/compare/v0.28.4...v0.28.5) (2022-03-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency express to ~4.17.3 ([63dc959](https://github.com/manniwatch/docker/commit/63dc9590ef0e8f49be7aa8f5b81b08ce63beba4a))
+
 ## [0.28.4](https://github.com/manniwatch/docker/compare/v0.28.3...v0.28.4) (2022-01-09)
 
 
