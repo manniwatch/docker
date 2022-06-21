@@ -1,3 +1,10 @@
+## [0.28.9](https://github.com/manniwatch/docker/compare/v0.28.8...v0.28.9) (2022-06-21)
+
+
+### Bug Fixes
+
+* **deps:** update manniwatch monorepo 0.29.15 to ~0.29.16 ([1f2761c](https://github.com/manniwatch/docker/commit/1f2761c0bad60aa5f5e780ec159f3ac4eded88fa))
+
 ## [0.28.8](https://github.com/manniwatch/docker/compare/v0.28.7...v0.28.8) (2022-04-29)
 
 
