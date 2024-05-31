@@ -60,7 +60,7 @@
     "apidoc": "1.2.0",
     "eslint": "8.57.0",
     "prettier": "2.8.8",
-    "semantic-release": "23.1.1",
+    "semantic-release": "24.0.0",
     "supertest": "7.0.0",
     "typescript": "4.9.5"
   }
