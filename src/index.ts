@@ -1,4 +1,4 @@
-/*
+/**
  * Package @manniwatch/docker
  * Source https://manniwatch.github.io/docker/
  */
@@ -16,7 +16,7 @@ const extractMode: () => ServerMode = (): ServerMode => {
             return ServerMode.FULL;
         } else {
             console.group(`Unknown Mode argument: "${process.argv[2]}"`);
-            // eslint-disable-next-line no-console
+
             console.log('Using Default "api"');
             console.groupEnd();
         }
@@ -32,12 +32,10 @@ const server: ManniWatchApiProxyServer | ManniWatchProxyServer =
 server
     .start()
     .then((): void => {
-        // eslint-disable-next-line no-console
         console.info(`Server started on ${Config.port} with endpoint ${Config.endpoint}`);
     })
     .catch(console.error);
 process.on('SIGINT', (): void => {
-    // eslint-disable-next-line no-console
     console.info('Interrupted');
     server
         .stop()
