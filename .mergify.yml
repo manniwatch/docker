@@ -1,18 +1,15 @@
 queue_rules:
   - name: default
-    conditions:
-      # Conditions to get out of the queue (= merged)
-      - status-success=Finish Test
-pull_request_rules:
-  - name: merge PRs labeled ready-to-merge
-    conditions:
+    queue_conditions:
       - status-success=Finish Test
       - label=ready-to-merge
-    actions:
-      queue:
-        method: squash
-        name: default
-        update_method: merge
+    merge_conditions:
+      # Conditions to get out of the queue (= merged)
+      - status-success=Finish Test
+    update_method: merge
+    merge_method: squash
+
+pull_request_rules:
   - name: delete head branch on merged pull requests
     conditions:
       - merged
@@ -23,3 +20,7 @@ pull_request_rules:
         remove:
           - ready-to-merge
       delete_head_branch:
+  - name: merge PRs labeled ready-to-merge
+    conditions: []
+    actions:
+      queue:
