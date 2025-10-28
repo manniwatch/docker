@@ -56,7 +56,7 @@
         "@donmahallem/eslint-config": "2.3.196",
         "@semantic-release/changelog": "6.0.3",
         "@semantic-release/git": "10.0.1",
-        "@types/express": "5.0.4",
+        "@types/express": "5.0.5",
         "apidoc": "1.2.0",
         "eslint": "9.38.0",
         "prettier": "3.6.2",
