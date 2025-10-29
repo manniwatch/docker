@@ -53,7 +53,7 @@
         "express": "~5.1.0"
     },
     "devDependencies": {
-        "@donmahallem/eslint-config": "2.3.196",
+        "@donmahallem/eslint-config": "2.3.197",
         "@semantic-release/changelog": "6.0.3",
         "@semantic-release/git": "10.0.1",
         "@types/express": "5.0.5",
