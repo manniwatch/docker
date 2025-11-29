@@ -59,7 +59,7 @@
         "@types/express": "5.0.5",
         "apidoc": "1.2.0",
         "eslint": "9.39.1",
-        "prettier": "3.7.2",
+        "prettier": "3.7.3",
         "semantic-release": "25.0.2",
         "supertest": "7.1.4",
         "typescript": "5.9.3"
