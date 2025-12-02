@@ -50,13 +50,13 @@
     "dependencies": {
         "@manniwatch/api-proxy-server": "~0.30.1",
         "@manniwatch/api-types": "~0.30.0",
-        "express": "~5.1.0"
+        "express": "~5.2.1"
     },
     "devDependencies": {
         "@donmahallem/eslint-config": "2.3.220",
         "@semantic-release/changelog": "6.0.3",
         "@semantic-release/git": "10.0.1",
-        "@types/express": "5.0.5",
+        "@types/express": "5.0.6",
         "apidoc": "1.2.0",
         "eslint": "9.39.1",
         "prettier": "3.7.3",
