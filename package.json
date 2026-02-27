@@ -58,7 +58,7 @@
         "@semantic-release/git": "10.0.1",
         "@types/express": "5.0.6",
         "apidoc": "1.2.0",
-        "eslint": "9.39.3",
+        "eslint": "10.0.2",
         "prettier": "3.8.1",
         "semantic-release": "25.0.3",
         "supertest": "7.2.2",
