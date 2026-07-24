@@ -55,7 +55,7 @@
     "devDependencies": {
         "@donmahallem/eslint-config": "2.3.344",
         "@semantic-release/changelog": "7.0.0",
-        "@semantic-release/git": "11.0.0",
+        "@semantic-release/git": "11.0.1",
         "@types/express": "5.0.6",
         "apidoc": "1.2.0",
         "eslint": "9.39.5",
